@@ -1,8 +1,7 @@
 import React, {PureComponent} from 'react';
 import { arrayOf, shape, string, number } from 'prop-types';
 
-const getVideoId = (url) => url.split('/')[3];
-const createVideoUrl = (id) => `https://www.youtube.com/embed/${id}`;
+import ListItem from './ListItem';
 
 export default class List extends PureComponent {
     static propTypes = {
@@ -19,23 +18,13 @@ export default class List extends PureComponent {
     };
     
     render() {
-        const { items } = this.props;
+        const { items, videos, removeItem } = this.props;
 
-        const list = items.map(item => {
-            const { url, id, title} = item;
-
-            const videoId = getVideoId(url);
-
-            return (
-                <li key={id}>
-                    <div className="title">{title}</div>
-                    <iframe src={createVideoUrl(videoId)} />
-                </li>
-            )
-        });
+        const list = items.map(item => <ListItem key={item.id} removeItem={removeItem} {...item} />);
 
         return (
             <ul>
+                Search Videos:{items.length} / All Videos:{videos}
                 {list}
             </ul>
         ); 

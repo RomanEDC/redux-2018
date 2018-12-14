@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import './App.css';
 import Form from './containers/Form';
 import List from './containers/List';
+import Search from './containers/Search';
 
 import storeCreator from './store';
 
@@ -14,6 +15,7 @@ class App extends Component {
     return (
         <Provider store={store}>
             <div className="App">
+            search by title: <Search searchField="title" />
                 <Form />
                 <List />
             </div>

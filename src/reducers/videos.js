@@ -15,8 +15,11 @@ export default function videosReducer(state = [], action) {
                 url: payload.url,
                 tags: payload.tags,
             };
-
             return [newItem, ...state];
+        case REMOVE_VIDEO:
+            return state.filter(item => 
+                payload.id !== item.id
+            );
         default:
             return state;
     }
@@ -25,4 +28,9 @@ export default function videosReducer(state = [], action) {
 export const addVideo = ({ title, url, tags }) => ({
     type: ADD_VIDEO,
     payload: { title, url, tags },
+});
+
+export const removeVideo = id => ({
+    type: REMOVE_VIDEO,
+    payload: { id },
 });
