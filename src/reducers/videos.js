@@ -10,6 +10,7 @@ export default function videosReducer(state = [], action) {
     switch(type) {
         case ADD_VIDEO:
             const newItem = {
+                id: Date.now(),
                 title: payload.title,
                 url: payload.url,
                 tags: payload.tags,

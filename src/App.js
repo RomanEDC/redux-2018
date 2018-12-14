@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 
 import './App.css';
-import List from './components/List';
 import Form from './containers/Form';
+import List from './containers/List';
 
 import storeCreator from './store';
 

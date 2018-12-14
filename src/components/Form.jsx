@@ -28,18 +28,21 @@ export default class Form extends PureComponent {
     render() {
         return (
             <div>
+                title:
                 <input
                     type="text"
                     name="title"
                     value={this.state.title}
                     onChange={this.onChange}
                 />
+                url:
                 <input
                     type="text"
                     name="url"
                     value={this.state.url}
                     onChange={this.onChange}
                 />
+                tags:
                 <input
                     type="text"
                     name="tags"

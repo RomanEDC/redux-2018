@@ -1,5 +1,5 @@
 import React, {PureComponent} from 'react';
-import { arrayOf, shape, string } from 'prop-types';
+import { arrayOf, shape, string, number } from 'prop-types';
 
 const getVideoId = (url) => url.split('/')[3];
 const createVideoUrl = (id) => `https://www.youtube.com/embed/${id}`;
@@ -7,26 +7,15 @@ const createVideoUrl = (id) => `https://www.youtube.com/embed/${id}`;
 export default class List extends PureComponent {
     static propTypes = {
         items: arrayOf(shape({
-            id: string,
+            id: number,
             title: string,
             url: string,
-            tags: arrayOf(string),
+            tags: string,
         })),
     };
 
     static defaultProps = {
-        items: [
-            {
-                id: '1',
-                title: 'Video 1',
-                url: 'https://youtu.be/9FmXNWq3EZI',
-            }, 
-            {
-                id: '2',
-                title: 'Video 2',
-                url: 'https://youtu.be/OiXd9vZb1Lc',
-            }
-        ],
+        items: [],
     };
     
     render() {
