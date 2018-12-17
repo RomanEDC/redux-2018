@@ -13,14 +13,14 @@ const store = storeCreator();
 class App extends Component {
   render() {
     return (
-        <Provider store={store}>
-            <div className="App">
-            search by title: <Search searchField="title" />
-            search by tags: <Search searchField="tags" />
-                <Form />
-                <List />
-            </div>
-        </Provider>
+      <Provider store={store}>
+        <div className="App">
+          search by title: <Search searchField="title" />
+          search by tags: <Search searchField="tags" />
+          <Form />
+          <List />
+        </div>
+      </Provider>
     );
   }
 }
